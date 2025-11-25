@@ -725,6 +725,17 @@
             color: var(--soft-gray);
             margin-bottom: 1.2rem;
             font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .origin-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--blush);
         }
 
         .week-tracker {
@@ -1509,7 +1520,10 @@
                         <span class="expand-icon">▾</span>
                     </div>
                     <div class="commitment-body">
-                        <p class="commitment-origin">From your conversation with ${data.partner}</p>
+                        <p class="commitment-origin">
+                            From your conversation with ${data.partner}
+                            <img src="${getHeadshotFile(data.partner)}" alt="${data.partner}" class="origin-avatar" onerror="this.style.display='none'">
+                        </p>
                         ${trackerHTML}
                     </div>
                 `;
