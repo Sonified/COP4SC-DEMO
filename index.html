@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COP4SC – Community of Practice for Social Creatives</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FDF8F3;
+            --warm-white: #FFFBF7;
+            --terracotta: #C17F59;
+            --terracotta-light: #D4A484;
+            --sage: #7D9B76;
+            --sage-light: #A8C4A2;
+            --charcoal: #3D3D3D;
+            --soft-gray: #6B6B6B;
+            --blush: #E8D5CC;
+            --lavender: #C9B8D4;
+            --gold: #D4A853;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 50%, var(--blush) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, var(--sage-light) 0%, transparent 70%);
+            opacity: 0.2;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -20%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, var(--terracotta-light) 0%, transparent 70%);
+            opacity: 0.15;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(5deg); }
+            66% { transform: translate(-20px, 20px) rotate(-3deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--terracotta);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--soft-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .principles {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: rgba(255,255,255,0.6);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero .principles p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--charcoal);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero .principles p:last-child {
+            margin-bottom: 0;
+        }
+
+        .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--terracotta);
+            margin-top: 2rem;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s ease-in-out infinite;
+            color: var(--terracotta-light);
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-hint svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Journey Section */
+        .journey {
+            padding: 6rem 2rem;
+            background: var(--warm-white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .section-header p {
+            color: var(--soft-gray);
+            font-size: 1.1rem;
+        }
+
+        .journey-path {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .journey-path::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--sage-light), var(--terracotta-light), var(--lavender));
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .week-node {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            position: relative;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .week-node:nth-child(1) { animation-delay: 0.1s; }
+        .week-node:nth-child(2) { animation-delay: 0.2s; }
+        .week-node:nth-child(3) { animation-delay: 0.3s; }
+        .week-node:nth-child(4) { animation-delay: 0.4s; }
+        .week-node:nth-child(5) { animation-delay: 0.5s; }
+
+        .week-node:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .week-node:nth-child(even) .week-content {
+            text-align: right;
+            padding-right: 3rem;
+            padding-left: 1.5rem;
+        }
+
+        .week-node:nth-child(odd) .week-content {
+            padding-left: 3rem;
+        }
+
+        .week-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .week-marker.completed {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-light) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(125, 155, 118, 0.4);
+        }
+
+        .week-marker.upcoming {
+            background: var(--cream);
+            border: 2px dashed var(--terracotta-light);
+            color: var(--terracotta-light);
+        }
+
+        .week-content {
+            width: calc(50% - 35px);
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .week-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .week-content.empty {
+            background: transparent;
+            box-shadow: none;
+            border: 2px dashed var(--blush);
+        }
+
+        .week-content.empty:hover {
+            transform: none;
+            border-color: var(--terracotta-light);
+        }
+
+        .week-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--terracotta);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .week-partner {
+            font-size: 0.9rem;
+            color: var(--soft-gray);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .week-node:nth-child(even) .week-partner {
+            justify-content: flex-end;
+        }
+
+        .partner-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--blush);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .week-sentence {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .week-nextstep {
+            background: var(--cream);
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+
+        .week-node:nth-child(even) .week-nextstep {
+            text-align: right;
+        }
+
+        .week-nextstep strong {
+            color: var(--sage);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .empty-prompt {
+            font-style: italic;
+            color: var(--terracotta-light);
+            padding: 1rem;
+        }
+
+        /* Roles Section */
+        .roles {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .role-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .role-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .role-card.bouncer {
+            border-top: 4px solid var(--terracotta);
+        }
+
+        .role-card.sounder {
+            border-top: 4px solid var(--sage);
+        }
+
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            opacity: 0.1;
+            transform: translate(30%, -30%);
+        }
+
+        .role-card.bouncer::before {
+            background: var(--terracotta);
+        }
+
+        .role-card.sounder::before {
+            background: var(--sage);
+        }
+
+        .role-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .bouncer .role-icon {
+            background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-light) 100%);
+        }
+
+        .sounder .role-icon {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-light) 100%);
+        }
+
+        .role-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bouncer h3 {
+            color: var(--terracotta);
+        }
+
+        .sounder h3 {
+            color: var(--sage);
+        }
+
+        .role-principle {
+            margin-bottom: 1.5rem;
+        }
+
+        .role-principle h4 {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .role-principle p {
+            font-size: 0.95rem;
+            color: var(--soft-gray);
+        }
+
+        /* Ritual Flow Section */
+        .ritual {
+            padding: 6rem 2rem;
+            background: var(--charcoal);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ritual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, var(--terracotta) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, var(--sage) 0%, transparent 40%);
+            opacity: 0.1;
+        }
+
+        .ritual .section-header h2 {
+            color: white;
+        }
+
+        .ritual .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .steps-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 900px) {
+            .steps-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .step-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--terracotta) 0%, var(--gold) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .step-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .step-card .time {
+            font-size: 0.85rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .step-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--cream);
+        }
+
+        footer p {
+            color: var(--soft-gray);
+            font-size: 0.9rem;
+        }
+
+        footer .love {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+        }
+
+        /* Passcode Modal */
+        .passcode-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 50%, var(--blush) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .passcode-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .passcode-modal {
+            text-align: center;
+            padding: 3rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .passcode-modal h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .passcode-modal p {
+            color: var(--soft-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .passcode-modal input {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 0.9rem 1.5rem;
+            border: 2px solid var(--blush);
+            border-radius: 12px;
+            background: white;
+            color: var(--charcoal);
+            outline: none;
+            width: 220px;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+
+        .passcode-modal input::placeholder {
+            color: var(--terracotta-light);
+            opacity: 0.7;
+        }
+
+        .passcode-modal input:focus {
+            border-color: var(--terracotta);
+            box-shadow: 0 0 0 4px rgba(193, 127, 89, 0.1);
+        }
+
+        .passcode-modal input.error {
+            border-color: #e57373;
+            animation: shake 0.4s ease;
+        }
+
+        .passcode-hint {
+            font-size: 0.9rem;
+            color: var(--terracotta);
+            min-height: 1.5em;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            50% { transform: translateX(8px); }
+            75% { transform: translateX(-8px); }
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .journey-path::before {
+                left: 25px;
+            }
+
+            .week-node,
+            .week-node:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .week-marker {
+                left: 25px;
+                position: relative;
+                transform: none;
+                margin-bottom: 1rem;
+            }
+
+            .week-content,
+            .week-node:nth-child(even) .week-content {
+                width: 100%;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                text-align: left;
+                margin-left: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Passcode Modal -->
+    <div class="passcode-overlay" id="passcodeOverlay">
+        <div class="passcode-modal">
+            <h2>Welcome, COPer ✨</h2>
+            <p>Enter your username and password to begin</p>
+            <input type="text" id="usernameInput" placeholder="username" autocomplete="off">
+            <input type="password" id="passwordInput" placeholder="password" autocomplete="off">
+            <p class="passcode-hint" id="passcodeHint"></p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="subtitle">Community of Practice for Social Creatives</p>
+            <h1>We Each Have Goals, Hopes, and Desires</h1>
+            <p>This practice is intended to help us, help each other, put it all out there and stay the course.</p>
+            
+            <div class="principles">
+                <p>We show up for each other, and for ourselves, with kind accountability.</p>
+                <p>We trust in what's possible when we offer each other practical curiosity.</p>
+                <p>We share openly and honestly.</p>
+                <p>We ask the questions we most want to hear the answer to.</p>
+            </div>
+
+            <p>To commit to a practice in this way, it takes a degree of vulnerability… it takes a degree of faith.</p>
+            <p>And that's why we keep showing up—one week, one convo, one step at a time.</p>
+
+            <div class="signature">Love, MCK ✨</div>
+        </div>
+
+        <div class="scroll-hint">
+            <span>Your Journey</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey" id="journey">
+        <div class="section-header">
+            <h2>Your 10-Week Journey</h2>
+            <p>Each week, a new conversation. Each conversation, a step closer to your goals.</p>
+        </div>
+
+        <div class="journey-path">
+            <!-- Week 1 - Completed -->
+            <div class="week-node">
+                <div class="week-marker completed">1</div>
+                <div class="week-content">
+                    <div class="week-label">Week 1 · Kickoff</div>
+                    <div class="week-partner">
+                        <img src="Headshots/Alexa_Headshot.jpeg" alt="Dana" class="partner-avatar">
+                        <span>with Dana Waldman</span>
+                    </div>
+                    <div class="week-sentence">"How can I center my authentic joy?"</div>
+                    <div class="week-nextstep">
+                        <strong>Next Step</strong>
+                        Begin a daily gratitude practice ✓
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 2 - Completed -->
+            <div class="week-node">
+                <div class="week-marker completed">2</div>
+                <div class="week-content">
+                    <div class="week-label">Week 2 · Bounce Exchange</div>
+                    <div class="week-partner">
+                        <img src="Headshots/Arman_Headshot.jpg" alt="Arman" class="partner-avatar">
+                        <span>with Arman B</span>
+                    </div>
+                    <div class="week-sentence">"How can I stay grounded and connected to peace as more opportunities open?"</div>
+                    <div class="week-nextstep">
+                        <strong>Next Step</strong>
+                        Ask myself each morning: "What would be fun today?" 😎
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 3 - Completed -->
+            <div class="week-node">
+                <div class="week-marker completed">3</div>
+                <div class="week-content">
+                    <div class="week-label">Week 3 · Bounce Exchange</div>
+                    <div class="week-partner">
+                        <img src="Headshots/Beth_Headshot_Web.jpg" alt="Angela" class="partner-avatar">
+                        <span>with Angela N</span>
+                    </div>
+                    <div class="week-sentence">"How to energetically shift gears into a higher state? How to spend less time in hyper-focus and hyper-comfort and more time being active?"</div>
+                    <div class="week-nextstep">
+                        <strong>Next Step</strong>
+                        Write a review of the many structures already here to support me—and flip the switch! 🔥
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 4 - Upcoming -->
+            <div class="week-node">
+                <div class="week-marker upcoming">4</div>
+                <div class="week-content empty">
+                    <p class="empty-prompt">Week 4 awaits...</p>
+                </div>
+            </div>
+
+            <!-- Week 5 - Upcoming -->
+            <div class="week-node">
+                <div class="week-marker upcoming">5</div>
+                <div class="week-content empty">
+                    <p class="empty-prompt">Halfway there...</p>
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align: center; color: var(--soft-gray); margin-top: 2rem; font-style: italic;">
+            + 5 more weeks of growth ahead →
+        </p>
+    </section>
+
+    <!-- Roles Section -->
+    <section class="roles">
+        <div class="section-header">
+            <h2>Two Roles, One Practice</h2>
+            <p>In each Bounce Exchange, you play both roles. Switch halfway.</p>
+        </div>
+
+        <div class="roles-grid">
+            <div class="role-card bouncer">
+                <div class="role-icon">🎯</div>
+                <h3>As the Bouncer</h3>
+                
+                <div class="role-principle">
+                    <h4>I Start With Clarity</h4>
+                    <p>When I take 2-3 mins to start with one clear sentence, I help myself and my Sounder make the most of this convo.</p>
+                </div>
+
+                <div class="role-principle">
+                    <h4>I Trust The Process</h4>
+                    <p>When I share my starting sentence and stop, I know this is enough. My Sounder's curiosity will guide me from here.</p>
+                </div>
+
+                <div class="role-principle">
+                    <h4>Curiosity is Currency</h4>
+                    <p>When I let my Sounder's questions guide me, I gain the clarity, insight, and action step I need.</p>
+                </div>
+            </div>
+
+            <div class="role-card sounder">
+                <div class="role-icon">👂</div>
+                <h3>As the Sounder</h3>
+                
+                <div class="role-principle">
+                    <h4>My Curiosity is Rare</h4>
+                    <p>We're taught to give advice. But when I'm a great listener who asks curious questions—that's rare and valuable.</p>
+                </div>
+
+                <div class="role-principle">
+                    <h4>I Trust The Process</h4>
+                    <p>When I trust the process, my Bouncer gains the clarity and insight they need to move toward their goals.</p>
+                </div>
+
+                <div class="role-principle">
+                    <h4>The Buffer Matters</h4>
+                    <p>Have a resource? Feedback? A question you didn't ask? The 10-min buffer is for this—with permission.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ritual Flow Section -->
+    <section class="ritual">
+        <div class="section-header">
+            <h2>The Weekly Ritual</h2>
+            <p>Simple. Intentional. Transformative.</p>
+        </div>
+
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h4>Prep</h4>
+                <div class="time">2-3 minutes</div>
+                <p>Slow down. Clarify your one starting sentence. Get in the zone.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h4>Connect</h4>
+                <div class="time">WhatsApp Call</div>
+                <p>Call your partner. Off-camera is encouraged. Be fully present.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h4>Bounce</h4>
+                <div class="time">20 + 10 × 2</div>
+                <p>20 mins per person. Plus 10-min buffer each for deeper exchange.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h4>Reflect</h4>
+                <div class="time">5-10 minutes</div>
+                <p>Capture your takeaways and next step while it's fresh.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="love">Happy Bounce'ing :) 🦋</p>
+        <p>Community of Practice for Social Creatives · Updated November 24, 2025</p>
+    </footer>
+
+    <script>
+        // Login check
+        const passcodeOverlay = document.getElementById('passcodeOverlay');
+        const usernameInput = document.getElementById('usernameInput');
+        const passwordInput = document.getElementById('passwordInput');
+        const passcodeHint = document.getElementById('passcodeHint');
+        const correctUsername = 'mck';
+        const correctPassword = 'love';
+
+        function checkLogin() {
+            const usernameMatch = usernameInput.value.toLowerCase() === correctUsername;
+            const passwordMatch = passwordInput.value.toLowerCase() === correctPassword;
+            
+            if (usernameMatch && passwordMatch) {
+                passcodeOverlay.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function showError() {
+            usernameInput.classList.add('error');
+            passwordInput.classList.add('error');
+            passcodeHint.textContent = 'Try again 💫';
+            setTimeout(() => {
+                usernameInput.classList.remove('error');
+                passwordInput.classList.remove('error');
+            }, 400);
+        }
+
+        usernameInput.addEventListener('input', function() {
+            this.classList.remove('error');
+            passcodeHint.textContent = '';
+            checkLogin();
+        });
+
+        passwordInput.addEventListener('input', function() {
+            this.classList.remove('error');
+            passcodeHint.textContent = '';
+            checkLogin();
+        });
+
+        passwordInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const usernameMatch = usernameInput.value.toLowerCase() === correctUsername;
+                const passwordMatch = passwordInput.value.toLowerCase() === correctPassword;
+                if (!usernameMatch || !passwordMatch) {
+                    showError();
+                }
+            }
+        });
+
+        // Focus input on load
+        usernameInput.focus();
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all week nodes and cards
+        document.querySelectorAll('.week-node, .role-card, .step-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Smooth scroll for scroll hint
+        document.querySelector('.scroll-hint').addEventListener('click', () => {
+            document.querySelector('#journey').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
+
