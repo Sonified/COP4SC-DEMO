@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COP4SC – Community of Practice for Social Creatives</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦋</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -224,7 +225,7 @@
 
         .week-node {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 2rem;
             position: relative;
             animation: fadeInUp 0.6s ease-out both;
@@ -253,7 +254,8 @@
         .week-marker {
             position: absolute;
             left: 50%;
-            transform: translateX(-50%);
+            top: 50%;
+            transform: translate(-50%, -50%);
             width: 54px;
             height: 54px;
             border-radius: 50%;
@@ -465,6 +467,7 @@
 
         .role-principle h4 {
             font-size: 1.1rem;
+            font-weight: 600;
             color: var(--charcoal);
             margin-bottom: 0.5rem;
         }
@@ -574,6 +577,287 @@
             line-height: 1.6;
         }
 
+        /* Accountability Tracker */
+        .tracker {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
+        }
+
+        .tracker-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .current-week-banner {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-light) 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(125, 155, 118, 0.3);
+        }
+
+        .week-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .week-dates {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .today-marker {
+            margin-left: auto;
+            background: white;
+            color: var(--sage);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .commitments {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .commitment-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .commitment-card:hover {
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+        }
+
+        .commitment-header {
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .commitment-header:hover {
+            background: var(--cream);
+        }
+
+        .commitment-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .commitment-week {
+            background: var(--charcoal);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .commitment-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--charcoal);
+        }
+
+        .frequency-tag {
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .frequency-tag.daily {
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--gold);
+        }
+
+        .frequency-tag.weekly {
+            background: rgba(125, 155, 118, 0.15);
+            color: var(--sage);
+        }
+
+        .frequency-tag.onetime {
+            background: rgba(193, 127, 89, 0.15);
+            color: var(--terracotta);
+        }
+
+        .expand-icon {
+            color: var(--soft-gray);
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .commitment-card:not(.expanded) .expand-icon {
+            transform: rotate(-90deg);
+        }
+
+        .commitment-body {
+            padding: 0 1.5rem 1.5rem;
+            display: none;
+        }
+
+        .commitment-card.expanded .commitment-body {
+            display: block;
+        }
+
+        .commitment-origin {
+            font-size: 0.85rem;
+            color: var(--soft-gray);
+            margin-bottom: 1.2rem;
+            font-style: italic;
+        }
+
+        .week-tracker {
+            background: var(--cream);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .week-label {
+            font-size: 0.8rem;
+            color: var(--soft-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .day-checks {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: space-between;
+        }
+
+        .day-check {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            flex: 1;
+        }
+
+        .day-check:hover {
+            background: rgba(255,255,255,0.8);
+        }
+
+        .day-check.today {
+            background: var(--terracotta);
+            color: white;
+        }
+
+        .day-check.today .day-name,
+        .day-check.today .day-date {
+            color: white;
+        }
+
+        .day-check input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: var(--sage);
+        }
+
+        .day-name {
+            font-size: 0.7rem;
+            color: var(--soft-gray);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .day-date {
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .streak-info {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .streak-label {
+            color: var(--soft-gray);
+        }
+
+        .streak-count {
+            color: var(--terracotta);
+            font-weight: 600;
+        }
+
+        .onetime-tracker {
+            background: var(--cream);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .onetime-check {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--charcoal);
+        }
+
+        .onetime-check input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: var(--sage);
+        }
+
+        @media (max-width: 600px) {
+            .day-checks {
+                gap: 0.25rem;
+            }
+            
+            .day-check {
+                padding: 0.3rem;
+            }
+
+            .day-check input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+            }
+
+            .current-week-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .today-marker {
+                margin-left: 0;
+            }
+        }
+
         /* Footer */
         footer {
             padding: 3rem 2rem;
@@ -591,6 +875,98 @@
             font-size: 1.2rem;
             color: var(--terracotta);
             margin-bottom: 1rem;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 1000;
+        }
+
+        .hamburger {
+            width: 44px;
+            height: 44px;
+            background: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--charcoal);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .nav-dropdown {
+            position: absolute;
+            top: 54px;
+            right: 0;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            min-width: 180px;
+        }
+
+        .nav-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-dropdown a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid var(--cream);
+        }
+
+        .nav-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .nav-dropdown a:hover {
+            background: var(--cream);
+            color: var(--terracotta);
+            padding-left: 1.8rem;
         }
 
         /* Passcode Modal */
@@ -723,8 +1099,24 @@
         </div>
     </div>
 
+    <!-- Navigation -->
+    <nav class="nav-menu">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-dropdown" id="navDropdown">
+            <a href="#welcome">Welcome</a>
+            <a href="#journey">10-Week Journey</a>
+            <a href="#roles">The Roles</a>
+            <a href="#ritual">Weekly Ritual</a>
+            <a href="#tracker">Your Commitments</a>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="welcome">
         <div class="hero-content">
             <p class="subtitle">Community of Practice for Social Creatives</p>
             <h1>We Each Have Goals, Hopes, and Desires</h1>
@@ -758,82 +1150,18 @@
             <p>Each week, a new conversation. Each conversation, a step closer to your goals.</p>
         </div>
 
-        <div class="journey-path">
-            <!-- Week 1 - Completed -->
-            <div class="week-node">
-                <div class="week-marker completed">1</div>
-                <div class="week-content">
-                    <div class="week-label">Week 1 · Kickoff</div>
-                    <div class="week-partner">
-                        <img src="Headshots/Alexa_Headshot.jpeg" alt="Dana" class="partner-avatar">
-                        <span>with Dana Waldman</span>
-                    </div>
-                    <div class="week-sentence">"How can I center my authentic joy?"</div>
-                    <div class="week-nextstep">
-                        <strong>Next Step</strong>
-                        Begin a daily gratitude practice ✓
-                    </div>
-                </div>
-            </div>
-
-            <!-- Week 2 - Completed -->
-            <div class="week-node">
-                <div class="week-marker completed">2</div>
-                <div class="week-content">
-                    <div class="week-label">Week 2 · Bounce Exchange</div>
-                    <div class="week-partner">
-                        <img src="Headshots/Arman_Headshot.jpg" alt="Arman" class="partner-avatar">
-                        <span>with Arman B</span>
-                    </div>
-                    <div class="week-sentence">"How can I stay grounded and connected to peace as more opportunities open?"</div>
-                    <div class="week-nextstep">
-                        <strong>Next Step</strong>
-                        Ask myself each morning: "What would be fun today?" 😎
-                    </div>
-                </div>
-            </div>
-
-            <!-- Week 3 - Completed -->
-            <div class="week-node">
-                <div class="week-marker completed">3</div>
-                <div class="week-content">
-                    <div class="week-label">Week 3 · Bounce Exchange</div>
-                    <div class="week-partner">
-                        <img src="Headshots/Beth_Headshot_Web.jpg" alt="Angela" class="partner-avatar">
-                        <span>with Angela N</span>
-                    </div>
-                    <div class="week-sentence">"How to energetically shift gears into a higher state? How to spend less time in hyper-focus and hyper-comfort and more time being active?"</div>
-                    <div class="week-nextstep">
-                        <strong>Next Step</strong>
-                        Write a review of the many structures already here to support me—and flip the switch! 🔥
-                    </div>
-                </div>
-            </div>
-
-            <!-- Week 4 - Upcoming -->
-            <div class="week-node">
-                <div class="week-marker upcoming">4</div>
-                <div class="week-content empty">
-                    <p class="empty-prompt">Week 4 awaits...</p>
-                </div>
-            </div>
-
-            <!-- Week 5 - Upcoming -->
-            <div class="week-node">
-                <div class="week-marker upcoming">5</div>
-                <div class="week-content empty">
-                    <p class="empty-prompt">Halfway there...</p>
-                </div>
-            </div>
+        <div class="journey-path" id="journey-path">
+            <!-- Journey nodes generated dynamically from CSV -->
+            <p id="journey-loading" style="text-align: center; color: var(--soft-gray);">Loading your journey...</p>
         </div>
 
         <p style="text-align: center; color: var(--soft-gray); margin-top: 2rem; font-style: italic;">
-            + 5 more weeks of growth ahead →
+            + 5 more weeks of growth ahead
         </p>
     </section>
 
     <!-- Roles Section -->
-    <section class="roles">
+    <section class="roles" id="roles">
         <div class="section-header">
             <h2>Two Roles, One Practice</h2>
             <p>In each Bounce Exchange, you play both roles. Switch halfway.</p>
@@ -883,7 +1211,7 @@
     </section>
 
     <!-- Ritual Flow Section -->
-    <section class="ritual">
+    <section class="ritual" id="ritual">
         <div class="section-header">
             <h2>The Weekly Ritual</h2>
             <p>Simple. Intentional. Transformative.</p>
@@ -920,6 +1248,28 @@
         </div>
     </section>
 
+    <!-- Accountability Tracker -->
+    <section class="tracker" id="tracker">
+        <div class="section-header">
+            <h2>Your Commitments</h2>
+            <p>Track your progress. One check at a time.</p>
+        </div>
+
+        <div class="tracker-container">
+            <!-- Current Week Highlight -->
+            <div class="current-week-banner" id="current-week-banner">
+                <span class="week-badge">Week 5</span>
+                <span class="week-dates">Nov 24 – Nov 30</span>
+                <span class="today-marker">Today: Nov 25</span>
+            </div>
+
+            <!-- Commitment Cards (generated dynamically from CSV) -->
+            <div class="commitments" id="commitments-container">
+                <p style="text-align: center; color: var(--soft-gray);">Loading commitments...</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <p class="love">Happy Bounce'ing :) 🦋</p>
@@ -927,6 +1277,262 @@
     </footer>
 
     <script>
+        // CSV Data Source
+        const CSV_FILE = '[Robert A] COP4SC 003 Community of Practice for Social Creatives_ Weekly Prep + Post Notebook - ✅Accountability 003.csv';
+        
+        // Week start dates (Monday of each week)
+        const WEEK_DATES = {
+            1: { start: new Date('2024-10-27'), label: 'Kickoff' },
+            2: { start: new Date('2024-11-03'), label: 'Bounce Exchange' },
+            3: { start: new Date('2024-11-10'), label: 'Bounce Exchange' },
+            4: { start: new Date('2024-11-17'), label: 'Bounce Exchange' },
+            5: { start: new Date('2024-11-24'), label: 'Bounce Exchange' },
+            6: { start: new Date('2024-12-01'), label: 'Bounce Exchange' },
+            7: { start: new Date('2024-12-08'), label: 'Bounce Exchange' },
+            8: { start: new Date('2024-12-15'), label: 'Bounce Exchange' },
+            9: { start: new Date('2024-12-22'), label: 'Bounce Exchange' },
+            10: { start: new Date('2024-12-29'), label: 'Finale' }
+        };
+
+        // Parse CSV
+        function parseCSV(text) {
+            const lines = text.split('\n');
+            const data = [];
+            
+            for (let i = 4; i < lines.length; i++) {
+                const line = lines[i];
+                if (!line.trim()) continue;
+                
+                const values = [];
+                let current = '';
+                let inQuotes = false;
+                
+                for (let char of line) {
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        values.push(current.trim());
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                values.push(current.trim());
+                
+                const weekMatch = values[1]?.match(/W(\d+)/);
+                if (!weekMatch) continue;
+                
+                const weekNum = parseInt(weekMatch[1]);
+                const partner = values[2] || '';
+                const startingSentence = values[3] || '';
+                const nextStep = values[5] || '';
+                const wantsAccountability = values[6]?.toLowerCase() === 'yes';
+                
+                if (partner && startingSentence) {
+                    data.push({
+                        week: weekNum,
+                        partner,
+                        startingSentence,
+                        nextStep,
+                        wantsAccountability
+                    });
+                }
+            }
+            return data;
+        }
+
+        // Detect goal frequency
+        function detectFrequency(goalText) {
+            const lower = goalText.toLowerCase();
+            if (lower.includes('daily') || lower.includes('each morning') || lower.includes('every day') || lower.includes('each day')) {
+                return 'daily';
+            }
+            if (lower.includes('weekly') || lower.includes('each week')) {
+                return 'weekly';
+            }
+            return 'onetime';
+        }
+
+        // Get current week number
+        function getCurrentWeek() {
+            const today = new Date();
+            for (let i = 10; i >= 1; i--) {
+                if (WEEK_DATES[i] && today >= WEEK_DATES[i].start) {
+                    return i;
+                }
+            }
+            return 1;
+        }
+
+        // Get days of current week
+        function getWeekDays(weekNum) {
+            const weekInfo = WEEK_DATES[weekNum];
+            if (!weekInfo) return [];
+            
+            const days = [];
+            const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            for (let i = 0; i < 7; i++) {
+                const date = new Date(weekInfo.start);
+                date.setDate(date.getDate() + i);
+                days.push({
+                    name: dayNames[i],
+                    date: date.getDate(),
+                    isToday: date.toDateString() === new Date().toDateString()
+                });
+            }
+            return days;
+        }
+
+        // Map partner names to headshots
+        function getHeadshotFile(partner) {
+            const name = partner.toLowerCase();
+            if (name.includes('dana')) return 'Headshots/Alexa_Headshot.jpeg';
+            if (name.includes('arman')) return 'Headshots/Arman_Headshot.jpg';
+            if (name.includes('angela')) return 'Headshots/Beth_Headshot_Web.jpg';
+            return 'Headshots/Alexa_Headshot.jpeg';
+        }
+
+        // Generate Journey Timeline
+        function generateJourney(weekData) {
+            const container = document.getElementById('journey-path');
+            const loading = document.getElementById('journey-loading');
+            if (!container) return;
+            if (loading) loading.remove();
+            
+            container.innerHTML = '';
+            const currentWeek = getCurrentWeek();
+            
+            for (let i = 1; i <= 5; i++) {
+                const data = weekData.find(w => w.week === i);
+                const weekInfo = WEEK_DATES[i];
+                
+                const node = document.createElement('div');
+                node.className = 'week-node';
+                
+                if (data) {
+                    node.innerHTML = `
+                        <div class="week-marker completed">${i}</div>
+                        <div class="week-content">
+                            <div class="week-label">Week ${i} · ${weekInfo?.label || 'Bounce Exchange'}</div>
+                            <div class="week-partner">
+                                <img src="${getHeadshotFile(data.partner)}" alt="${data.partner}" class="partner-avatar" onerror="this.style.display='none'">
+                                <span>with ${data.partner}</span>
+                            </div>
+                            <div class="week-sentence">"${data.startingSentence}"</div>
+                            <div class="week-nextstep">
+                                <strong>Next Step</strong>
+                                ${data.nextStep}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    node.innerHTML = `
+                        <div class="week-marker upcoming">${i}</div>
+                        <div class="week-content empty">
+                            <p class="empty-prompt">${i === 5 ? 'Halfway there...' : `Week ${i} awaits...`}</p>
+                        </div>
+                    `;
+                }
+                container.appendChild(node);
+            }
+        }
+
+        // Generate Commitments Tracker
+        function generateCommitments(weekData) {
+            const container = document.getElementById('commitments-container');
+            const banner = document.getElementById('current-week-banner');
+            if (!container) return;
+            
+            const currentWeek = getCurrentWeek();
+            const weekDays = getWeekDays(currentWeek);
+            const weekInfo = WEEK_DATES[currentWeek];
+            
+            // Update banner
+            if (banner && weekInfo) {
+                const endDate = new Date(weekInfo.start);
+                endDate.setDate(endDate.getDate() + 6);
+                const today = new Date();
+                banner.innerHTML = `
+                    <span class="week-badge">Week ${currentWeek}</span>
+                    <span class="week-dates">${weekInfo.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} – ${endDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                    <span class="today-marker">Today: ${today.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                `;
+            }
+            
+            container.innerHTML = '';
+            
+            weekData.filter(d => d.nextStep && d.wantsAccountability).forEach((data, index) => {
+                const frequency = detectFrequency(data.nextStep);
+                const isExpanded = index < 2;
+                
+                const card = document.createElement('div');
+                card.className = `commitment-card ${isExpanded ? 'expanded' : ''}`;
+                
+                let trackerHTML = '';
+                if (frequency === 'daily') {
+                    trackerHTML = `
+                        <div class="week-tracker">
+                            <div class="week-label">This Week (W${currentWeek})</div>
+                            <div class="day-checks">
+                                ${weekDays.map(day => `
+                                    <label class="day-check ${day.isToday ? 'today' : ''}">
+                                        <input type="checkbox">
+                                        <span class="day-name">${day.name}</span>
+                                        <span class="day-date">${day.date}</span>
+                                    </label>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="streak-info">
+                            <span class="streak-label">Streak:</span>
+                            <span class="streak-count">Start today! ✨</span>
+                        </div>
+                    `;
+                } else {
+                    trackerHTML = `
+                        <div class="onetime-tracker">
+                            <label class="onetime-check">
+                                <input type="checkbox">
+                                <span class="onetime-label">Mark as complete</span>
+                            </label>
+                        </div>
+                    `;
+                }
+                
+                card.innerHTML = `
+                    <div class="commitment-header" onclick="toggleCommitment(this)">
+                        <div class="commitment-info">
+                            <span class="commitment-week">W${data.week}</span>
+                            <span class="commitment-title">${data.nextStep}</span>
+                            <span class="frequency-tag ${frequency}">${frequency === 'onetime' ? 'One-time' : frequency.charAt(0).toUpperCase() + frequency.slice(1)}</span>
+                        </div>
+                        <span class="expand-icon">▾</span>
+                    </div>
+                    <div class="commitment-body">
+                        <p class="commitment-origin">From your conversation with ${data.partner}</p>
+                        ${trackerHTML}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            
+            // Re-init goal tracking
+            setTimeout(initGoalTracking, 100);
+        }
+
+        // Load CSV and generate UI
+        async function loadData() {
+            try {
+                const response = await fetch(CSV_FILE);
+                const text = await response.text();
+                const weekData = parseCSV(text);
+                generateJourney(weekData);
+                generateCommitments(weekData);
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
         // Login check
         const passcodeOverlay = document.getElementById('passcodeOverlay');
         const usernameInput = document.getElementById('usernameInput');
@@ -942,6 +1548,7 @@
             if (usernameMatch && passwordMatch) {
                 passcodeOverlay.classList.add('hidden');
                 document.body.style.overflow = 'auto';
+                loadData(); // Load CSV data after login
             }
         }
 
@@ -979,6 +1586,157 @@
 
         // Focus input on load
         usernameInput.focus();
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navDropdown = document.getElementById('navDropdown');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navDropdown.classList.toggle('open');
+        });
+
+        // Close menu when clicking a link
+        navDropdown.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navDropdown.classList.remove('open');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navDropdown.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navDropdown.classList.remove('open');
+            }
+        });
+
+        // Commitment card toggle
+        function toggleCommitment(header) {
+            const card = header.closest('.commitment-card');
+            card.classList.toggle('expanded');
+        }
+
+        // IndexedDB for goal tracking
+        const DB_NAME = 'COP4SC_Goals';
+        const DB_VERSION = 1;
+        const STORE_NAME = 'completions';
+        let db;
+
+        // Initialize IndexedDB
+        function initDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+                
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => {
+                    db = request.result;
+                    resolve(db);
+                };
+                
+                request.onupgradeneeded = (event) => {
+                    const database = event.target.result;
+                    if (!database.objectStoreNames.contains(STORE_NAME)) {
+                        database.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                    }
+                };
+            });
+        }
+
+        // Save a completion
+        function saveCompletion(id, checked) {
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction([STORE_NAME], 'readwrite');
+                const store = transaction.objectStore(STORE_NAME);
+                
+                if (checked) {
+                    store.put({ id, completed: true, timestamp: Date.now() });
+                } else {
+                    store.delete(id);
+                }
+                
+                transaction.oncomplete = () => resolve();
+                transaction.onerror = () => reject(transaction.error);
+            });
+        }
+
+        // Load all completions
+        function loadCompletions() {
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction([STORE_NAME], 'readonly');
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.getAll();
+                
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        // Generate unique ID for each checkbox
+        function getCheckboxId(checkbox) {
+            const card = checkbox.closest('.commitment-card');
+            const week = card.querySelector('.commitment-week').textContent;
+            const dayCheck = checkbox.closest('.day-check');
+            const onetimeCheck = checkbox.closest('.onetime-check');
+            
+            if (dayCheck) {
+                const date = dayCheck.querySelector('.day-date').textContent;
+                return `${week}-day-${date}`;
+            } else if (onetimeCheck) {
+                return `${week}-onetime`;
+            }
+            return null;
+        }
+
+        // Initialize goal tracking
+        async function initGoalTracking() {
+            await initDB();
+            const completions = await loadCompletions();
+            const completedIds = new Set(completions.map(c => c.id));
+            
+            // Restore checkbox states
+            document.querySelectorAll('.commitment-card input[type="checkbox"]').forEach(checkbox => {
+                const id = getCheckboxId(checkbox);
+                if (id && completedIds.has(id)) {
+                    checkbox.checked = true;
+                }
+                
+                // Add change listener
+                checkbox.addEventListener('change', async function() {
+                    const checkboxId = getCheckboxId(this);
+                    if (checkboxId) {
+                        await saveCompletion(checkboxId, this.checked);
+                        updateStreakDisplay();
+                    }
+                });
+            });
+            
+            updateStreakDisplay();
+        }
+
+        // Update streak display
+        function updateStreakDisplay() {
+            document.querySelectorAll('.commitment-card').forEach(card => {
+                const streakInfo = card.querySelector('.streak-info');
+                if (!streakInfo) return;
+                
+                const checkboxes = card.querySelectorAll('.day-check input[type="checkbox"]');
+                const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+                const streakCount = streakInfo.querySelector('.streak-count');
+                
+                if (checkedCount === 0) {
+                    streakCount.textContent = 'Start today! ✨';
+                } else if (checkedCount === 7) {
+                    streakCount.textContent = 'Perfect week! 🌟';
+                } else {
+                    streakCount.textContent = `${checkedCount}/7 this week 🔥`;
+                }
+            });
+        }
+
+        // Initialize when DOM is ready
+        initGoalTracking();
 
         // Intersection Observer for scroll animations
         const observerOptions = {
